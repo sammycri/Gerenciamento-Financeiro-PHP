@@ -1,0 +1,65 @@
+body
+{
+    background-color: #ddd;
+    font-family: Tahoma;
+}
+header
+{
+    font-size: 16px;
+    text-align: right;
+}
+form#busca
+{
+    text-align: right;
+}
+div#corpo
+{
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 30px #777;
+    border-radius: 10px;
+}
+div#corpo tr
+{
+    font-size: 14pt;
+}
+footer
+{
+    text-align: center;
+    font-family: Arial;
+    font-size: 14px;
+}
+div.sucesso
+{
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgba(226,239,218);
+    color: rgb(74, 116, 67);
+}
+div.aviso
+{
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgba(5, 5, 5, 0.2);
+    color: rgb(255, 204, 0);
+}
+div.erro
+{
+    padding: 7px 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: rgb(239, 218, 218);
+    color: rgb(250, 24, 24);
+}
+div#corpo h1
+{
+    text-align: center;
+}
+div#corpo p
+{
+    font-size: 14pt;
+}

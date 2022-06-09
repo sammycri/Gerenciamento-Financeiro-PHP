@@ -18,7 +18,7 @@
         <h1> Bem vindo</h1>
         <p><br/> Esse é um projeto feito com HTML5, CSS3, PHP e MYSQL.</p>
         <p> Trata-se de um sistema de gerenciamento financeiro pessoal com funcionalidades básicas. O sistema possuí criação de conta, para que haja distinção entre os usuários e seus dados</p>
-        <p> Para começar basta efetuar o <a href="user-login.php"> login </a>, e seguir preenchendo os dados conforme lhe for pedido, logo após o login, basta clickar em "Finanças" no topo da página.</p>
+        <p> Para começar basta efetuar o <a href="user-login.php"> login </a>, e seguir preenchendo os dados conforme lhe for pedido, logo após o login, basta clickar em "Finanças" o topo da página.</p>
 
         </table>
     </div>

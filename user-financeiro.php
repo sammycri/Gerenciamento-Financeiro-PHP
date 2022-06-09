@@ -35,8 +35,8 @@ require_once 'includes/funcoes.php';
         $q = "select saldo, investido from usuarios where usuario='" . $_SESSION['user'] . "'";
         $busca = $banco->query($q);
         $reg = $busca->fetch_object();
-        $oldValorSaldo = $reg->saldo;
-        $oldValorInvest = $reg->investido;
+        $velhoValorSaldo = $reg->saldo;
+        $velhoValorInvest = $reg->investido;
         $valor = $_POST['valor'] ?? null;
         $tipo = $_POST['tDinheiro'] ?? null;
         if(is_null($valor))
@@ -47,13 +47,13 @@ require_once 'includes/funcoes.php';
         {
             if($tipo == 'yes')
             {
-                $valor += $oldValorSaldo;
+                $valor += $velhoValorSaldo;
                 $q = "UPDATE usuarios set saldo='$valor'";
                 $q .= " where usuario = '" . $_SESSION['user'] . "'";
             }
             else
             {
-                $valor += $oldValorInvest;
+                $valor += $velhoValorInvest;
                 $q = "UPDATE usuarios set investido='$valor'";
                 $q .= " where usuario = '" . $_SESSION['user'] . "'";
             }

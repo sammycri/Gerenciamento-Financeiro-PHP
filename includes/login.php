@@ -9,13 +9,13 @@ if(!isset($_SESSION['user']))
 
 function cripto($senha)
 {
-    $c ='';
+    $character ='';
     for($pos = 0; $pos < strlen($senha); $pos++)
     {
         $letra = ord($senha[$pos]) + 1;
-        $c .= chr($letra);
+        $character .= chr($letra);
     }
-    return $c;
+    return $character;
 }
 
 function gerarHash($senha)

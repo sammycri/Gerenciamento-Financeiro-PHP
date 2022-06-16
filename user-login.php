@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Página de login</title>
-    <link rel="stylesheet" href="estilo.css"/>
+    <link rel="stylesheet" href="css/estilo.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
         div#corpo

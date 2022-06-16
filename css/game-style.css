@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+.game-board
+{
+    width: 1205px;
+    height:800px;
+    border-bottom: 15px solid #36b736;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.pipe
+{
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    right: -80px;
+    animation: pipe-animation 2s infinite linear;
+}
+
+.mario
+{
+    width: 150px;
+    bottom: 0;
+    position: absolute;
+}
+.jump
+{
+    animation: jump 500ms infinite ease-out;
+}
+
+.clouds
+{
+    position: absolute;
+    width: 900px;
+    animation: clouds-animation 15s infinite linear;
+}
+.sol
+{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: -200px;
+    top: -200px;
+}
+
+@keyframes pipe-animation
+{
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump
+{
+    0%
+    {
+        bottom: 0;
+    }
+    40%
+    {
+        bottom: 180px;
+    }
+    50%
+    {
+        bottom: 180px;
+    }
+    60%
+    {
+        bottom: 180px;
+    }
+    100%
+    {
+        bottom: 0px;
+    }
+}
+
+@keyframes  clouds-animation
+{
+    from
+    {
+        right: -900px;
+    }
+    to
+    {
+        right: 100%;
+    }
+}
+
+
+/*--Global Styles--*/
+
+
+body
+{
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    height: 95vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: black;
+}
+
+/*-- Botãozinho de voltar lindaum--*/
+.btn-slice
+{
+    padding: 1.2rem 2.5rem;
+    border: 2px solid #ffffff;
+    border-radius: 0rem;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+
+    -webkit-transition: all 1000ms cubic-bezier(0.890, 0, 0.140, 1); /* older webkit */
+    -webkit-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -moz-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -o-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(0.890, 0, 0.140, 1); /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -moz-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -o-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); /* custom */
+}
+
+.btn-slice .top
+{
+    position: relative;
+    height: 6px;
+    overflow: hidden;
+    top: 0;
+    -webkit-transition: all 300ms cubic-bezier(1.000, 0, 0.025, 1); /* older webkit */
+    -webkit-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -moz-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -o-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(1.000, 0, 0.025, 1); /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -moz-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -o-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); /* custom */
+
+    -webkit-transition-delay:0.35s;
+    -moz-transition-delay:0.35s;
+    -ms-transition-delay:0.35s;
+    -o-transition-delay:0.35s;
+    transition-delay:0.35s;
+}
+
+.btn-slice .bottom
+{
+    position: relative;
+    height: 6px;
+    overflow: hidden;
+    bottom: 0;
+    -webkit-transition: all 300ms cubic-bezier(1.000, 0, 0.025, 1); /* older webkit */
+    -webkit-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -moz-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -o-transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(1.000, 0, 0.025, 1); /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -moz-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    -o-transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040); /* custom */
+
+    -webkit-transition-delay:0.35s;
+    -moz-transition-delay:0.35s;
+    -ms-transition-delay:0.35s;
+    -o-transition-delay:0.35s;
+    transition-delay:0.35s;
+}
+
+.btn-slice .bottom span
+{
+    top: -6px;
+    position: absolute;
+    left: 0;
+}
+
+.btn-slice:hover .top
+{
+    top: -5px;
+    -webkit-transition-delay:0.35s;
+    -moz-transition-delay:0.35s;
+    -ms-transition-delay:0.35s;
+    -o-transition-delay:0.35s;
+    transition-delay:0.35s;
+}
+
+.btn-slice:hover .bottom
+{
+    bottom: -5px;
+    -webkit-transition-delay:0.35s;
+    -moz-transition-delay:0.35s;
+    -ms-transition-delay:0.35s;
+    -o-transition-delay:0.35s;
+    transition-delay:0.35s;
+}
+.btn-slice:hover, .btn-slice:focus, .btn-slice:active
+{
+    margin-left: 10px;
+}
+.btn-slice:before
+{
+    content: '';
+    height: 1px;
+    width: 60px;
+    background-color: #ffffff;
+    position: absolute;
+    margin-top: 6px;
+    right: -35px;
+
+    -webkit-transition: all 1000ms cubic-bezier(0.890, 0, 0.140, 1); /* older webkit */
+    -webkit-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -moz-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -o-transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(0.890, 0, 0.140, 1); /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -moz-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    -o-transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225);
+    transition-timing-function: cubic-bezier(0.890, -0.170, 0.140, 1.225); /* custom */
+}
+.btn-slice:hover:before
+{
+    width: 130%;
+}
+/* ======================== */
+/* ======================== */
+/* ======================== */
+/* ======================== */
+/* BORDA BRILHANTE LINDONA */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ======================== */
+.card {
+    width: 1230px;
+    height: 828px;
+    background-color: rgba(0,0,0,0%);
+    border: 15px solid;
+    /* The border image property will work in a similar manner as a background image. This will allow us to use a gradient for the border. The '1' specifies the border width. In this case using a single value means stretch 100% across all corners. You are able to set up to 4 values corresponding to each corner. */
+    border-image:
+            linear-gradient(#ff512f,
+            #dd2476,
+            #1c64ff) 15;
+    animation: rotate 2.5s ease-in infinite;
+}
+
+/* Here we simply at a keyframe to animate the gradient. To do so, we add in the same gradient, the only difference is that now we rotate the gradient by 360 degrees.  */
+@keyframes rotate {
+    50% {
+        border-image:
+                linear-gradient(360deg,
+                #ff512f,
+                #dd2476,
+                #1c64ff) 1;
+    }
+}
+
+
+/* pontos e tempo*/
+.topline-time
+{
+    position:absolute;
+    left: 50%;
+}
+.bottomline-time{
+    position:absolute;
+    top: 35px;
+    left:50.5%;
+}
+
+.topline-score
+{
+    position:absolute;
+    left: 70%;
+}
+.bottomline-score{
+    position:absolute;
+    top: 35px;
+    left:70.5%;
+}
+
+.scorebar
+{
+      position: absolute;
+      top: 50px;
+      height: 120px;
+      width:700px;
+    right: 100px;
+      z-index: 10;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 180%;
+      color: black;
+
+      padding-left: 50px;
+      padding-right: 50px;
+      line-height: 0.2;
+}
+/*
+========================
+      BUTÃO DE GAME OVER
+========================*/
+
+
+
+
+a[class*=box] {
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.box-2 { background-color: rgba(0,0,0,0); }
+.btn {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+}
+
+/*
+========================
+*/
+.btn-two {
+    color: black;
+    transition: all 0.5s;
+    position: relative;
+}
+.btn-two span {
+    z-index: 2;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.btn-two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(2,2,5,0.2);
+    background-color: rgba(2,2,5,0.1);
+}
+.btn-two::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(2,2,5,0.2);
+    background-color: rgba(2,2,5,0.1);
+}
+.btn-two:hover::before {
+    transform: rotate(-45deg);
+    background-color: rgba(255,255,255,0);
+}
+.btn-two:hover::after {
+    transform: rotate(45deg);
+    background-color: rgba(255,255,255,0);
+}

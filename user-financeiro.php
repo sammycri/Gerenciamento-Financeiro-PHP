@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página de login</title>
+    <title>Gerenciamento Financeiro</title>
     <link rel="stylesheet" href="css/estilo.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
@@ -45,27 +45,60 @@ require_once 'includes/funcoes.php';
         }
         else
         {
-            if($tipo == 'yes')
+            if(!empty($valor))
             {
-                $valor += $velhoValorSaldo;
-                $q = "UPDATE usuarios set saldo='$valor'";
-                $q .= " where usuario = '" . $_SESSION['user'] . "'";
-            }
-            else
-            {
-                $valor += $velhoValorInvest;
-                $q = "UPDATE usuarios set investido='$valor'";
-                $q .= " where usuario = '" . $_SESSION['user'] . "'";
-            }
-            if($banco->query($q))
-            {
-                echo msg_sucesso("Valores atualizados com sucesso.");
+                if($tipo == 'liquido')
+                {
+                    $valor += $velhoValorSaldo;
+                    $q = "UPDATE usuarios set saldo='$valor'";
+                    $q .= " where usuario = '" . $_SESSION['user'] . "'";
+                }
+                else
+                {
+                    $valor += $velhoValorInvest;
+                    $q = "UPDATE usuarios set investido='$valor'";
+                    $q .= " where usuario = '" . $_SESSION['user'] . "'";
+                }
+                if($banco->query($q))
+                {
+                    echo msg_sucesso("Valores atualizados com sucesso.");
+                    ?>
+                            <script>//redirecionamento autatico para pagina inicial
+                                setTimeout(function() {
+                                    window.location.href = "user-financeiro.php";
+                                }, 2000);
+                            </script>
+                    <?php
 
+                }
+                else
+                {
+                    echo msg_erro("Não foi possível alterar os dados.");
+                    ?>
+                            <script>//redirecionamento autatico para pagina inicial
+                                setTimeout(function() {
+                                    window.location.href = "user-financeiro.php";
+                                }, 2000);
+                            </script>
+                    <?php
+                }
             }
             else
             {
-                echo msg_erro("Não foi possível alterar os dados.");
+                echo msg_erro("Favor preencher o campo de valor antes de tentar salvar.");
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                ?>
+                            <script>//redirecionamento autatico para pagina inicial
+                                setTimeout(function() {
+                                    window.location.href = "user-financeiro.php";
+                                }, 2000);
+                            </script>
+                    <?php
             }
+            
         }
     }
 

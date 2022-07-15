@@ -35,6 +35,13 @@ require_once "includes/funcoes.php";
                         if(empty($senha1) || is_null($senha1))
                         {
                             echo msg_aviso("Senha antiga foi mantida.");
+                            ?>
+                            <script>//redirecionamento autatico para pagina inicial
+                                setTimeout(function() {
+                                    window.location.href = "index.php";
+                                }, 2000);
+                            </script>
+                            <?php
                         }
                         else
                         {
@@ -46,19 +53,39 @@ require_once "includes/funcoes.php";
                             else
                             {
                                 echo msg_erro("Senhas nao conferem, tente novamente!");
+                                ?>
+                                <script>//redirecionamento autatico para pagina inicial
+                                    setTimeout(function() {
+                                        window.location.href = "user-edit.php";
+                                    }, 2000);
+                                </script>
+                                <?php
                             }
                         }
                         $q .= " where usuario = '" . $_SESSION['user'] . "'";
 
-                        if($banco->query($q))
+                        if($banco->query($q) && !empty($senha1))
                         {
-                            echo msg_sucesso("Dados alterados com sucesso.");
-                            echo msg_aviso("Por segurança, efetue <a href='logout.php'> login</a> novamente!");
+                            echo msg_sucesso("Dados alterados com sucesso.");                            
+                            ?>
+                            <script>//redirecionamento autatico para pagina inicial
+                                setTimeout(function() {
+                                    window.location.href = "index.php";
+                                }, 2000);
+                            </script>
+                            <?php
 
                         }
                         else
                         {
                             echo msg_erro("Não foi possível alterar os dados.");
+                            ?>
+                            <script>//redirecionamento autatico para pagina inicial
+                                setTimeout(function() {
+                                    window.location.href = "index.php";
+                                }, 2000);
+                            </script>
+                            <?php
                         }
 
                     }

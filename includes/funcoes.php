@@ -19,17 +19,17 @@ function excluir()
 function msg_sucesso($m)
 {
     $resp = "<div class='sucesso'> <i class='material-symbols-outlined'> check_circle </i> $m </div>";
-    return $resp;
+    return $resp;    
 }
 
 function msg_aviso($m)
 {
     $resp = "<div class='aviso'> <i class='material-symbols-outlined'> report_problem </i> $m </div>";
-    return $resp;
+    return $resp;    
 }
 
 function msg_erro($m)
 {
     $resp = "<div class='erro'> <i class='material-symbols-outlined'> dangerous </i> $m </div>";
-    return $resp;
+    return $resp;    
 }

@@ -34,31 +34,53 @@ require_once 'includes/funcoes.php';
         }
         else
         {
-            $q = "SELECT usuario, nome, senha FROM usuarios where usuario = '$u' LIMIT 1";
+            $q = "SELECT usuario, nome, senha FROM usuarios where usuario = '$u' LIMIT 1"; //variavel que carrega o comando que será enviado ao banco de dados
             $busca = $banco->query($q);
-            if(!$busca)
+            if(!$busca)//test de acesso ao banco de dados
             {
                 echo msg_erro("Falha ao acessar o banco de dados!");
             }
             else
             {
-                if($busca->num_rows > 0)
+                if($busca->num_rows > 0)//checando informações de login
                 {
                     $reg = $busca->fetch_object();
-                    if(testarHash($s, $reg->senha))
+                    if(testarHash($s, $reg->senha))//testando a senha cryptografada e com hash
                     {
                         echo msg_sucesso("Logado com sucesso");
                         $_SESSION['user'] = $reg->usuario;
                         $_SESSION['nome'] = $reg->nome;
+                        ?>
+                        <script>//redirecionamento automatico
+                            setTimeout(function() {
+                                window.location.href = "index.php";
+                            }, 1000);
+                        </script>                        
+                        <?php
                     }
                     else
                     {
-                        echo msg_erro("Senha inválida");
+                        echo msg_erro("Senha inválida, tente novamente!");
+                        ?>
+                        <script>//redirecionamento automatico
+                            setTimeout(function() {
+                                window.location.href = "user-login.php";
+                            }, 2000);
+                        </script>                        
+                        <?php
+                        
                     }
                 }
-                else
+                else//caso o usuario nao esteja cadastrado ainda
                 {
-                    echo msg_aviso("Usuário não encontrado");
+                    echo msg_aviso("Usuário não encontrado, cadastre-se ou tente novamente!");
+                    ?>
+                        <script>//redirecionamento automatico
+                            setTimeout(function() {
+                                window.location.href = "user-login.php";
+                            }, 3000);
+                        </script>                        
+                    <?php
                 }
             }
         }
